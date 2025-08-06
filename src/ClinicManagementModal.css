@@ -1,0 +1,218 @@
+.cms-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cms-modal {
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cms-modal-split {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  background: #fff;
+}
+
+.cms-modal-left {
+  flex: 1 1 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0 0 8vw;
+}
+
+.cms-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.18rem;
+  color: #222;
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+}
+.cms-feature-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 1.18rem;
+  font-weight: 500;
+}
+.cms-feature-check {
+  color: #16a6d9;
+  font-size: 1.4rem;
+  margin-right: 18px;
+  font-weight: bold;
+}
+
+.cms-modal-right {
+  flex: 1 1 50%;
+  background: linear-gradient(120deg, #f8fbff 0%, #e3f2fd 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 8vw 0 4vw;
+  position: relative;
+}
+.cms-modal-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 0;
+  text-align: left;
+  margin-top: 32px;
+}
+.cms-modal-title-bold {
+  font-weight: 900;
+  color: #222;
+}
+.cms-modal-divider {
+  width: 60px;
+  border: 1.5px solid #888;
+  margin: 18px 0 28px 0;
+}
+.cms-modal-form {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.cms-modal-form label {
+  font-size: 1.08rem;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cms-modal-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+.cms-modal-input-group input {
+  width: 100%;
+  padding: 16px 48px 16px 18px;
+  border-radius: 14px;
+  border: 1.5px solid #16a6d9;
+  font-size: 1.1rem;
+  background: #f8fbff;
+  color: #222;
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  outline: none;
+  box-shadow: none;
+  transition: border 0.18s;
+}
+.cms-modal-input-icon-right {
+  position: absolute;
+  right: 16px;
+  color: #16a6d9;
+  font-size: 1.3rem;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.cms-modal-input-group input:focus {
+  border: 1.5px solid #2dbeee;
+  background: #fff;
+}
+.cms-modal-input-icon {
+  position: absolute;
+  left: 16px;
+  color: #16a6d9;
+  font-size: 1.3rem;
+  pointer-events: none;
+}
+.cms-modal-btn {
+  background: linear-gradient(90deg, #2196f3 0%, #16a6d9 100%);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 18px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 18px;
+  box-shadow: 0 2px 8px rgba(45,91,227,0.08);
+  transition: background 0.18s, box-shadow 0.18s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.cms-modal-btn-arrow {
+  font-size: 1.3rem;
+  margin-left: 8px;
+}
+.cms-modal-btn:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #16a6d9 100%);
+}
+.cms-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.18s;
+  z-index: 2;
+}
+.cms-modal-close:hover {
+  color: #2dbeee;
+}
+@media (max-width: 1100px) {
+  .cms-modal-split {
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+  }
+  .cms-modal-left, .cms-modal-right {
+    flex: 1 1 100%;
+    width: 100vw;
+    padding: 32px 4vw;
+    justify-content: center;
+    align-items: center;
+  }
+  .cms-modal-title {
+    margin-top: 0;
+  }
+}
+@media (max-width: 600px) {
+  .cms-modal-title {
+    font-size: 1.5rem;
+  }
+  .cms-modal-btn {
+    font-size: 1rem;
+    padding: 14px 0;
+  }
+} 
