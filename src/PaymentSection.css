@@ -118,4 +118,46 @@
     width: 99vw;
     height: 180px;
   }
+}
+
+@media (max-width: 600px) {
+  .payment-section {
+    padding: 40px 16px 30px 16px;
+  }
+  .payment-image img {
+    width: calc(100vw - 48px);
+    border-radius: 20px;
+  }
+  .payment-title {
+    font-size: 2rem;
+    padding: 0 16px;
+  }
+  .payment-subtitle {
+    font-size: 1.1rem;
+    padding: 0 16px;
+  }
+  .payment-link {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-section {
+    padding: 30px 12px 20px 12px;
+  }
+  .payment-image img {
+    width: calc(100vw - 32px);
+    border-radius: 16px;
+  }
+  .payment-title {
+    font-size: 1.8rem;
+    padding: 0 12px;
+  }
+  .payment-subtitle {
+    font-size: 1rem;
+    padding: 0 12px;
+  }
+  .payment-link {
+    font-size: 1rem;
+  }
 } 

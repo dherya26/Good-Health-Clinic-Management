@@ -19,6 +19,19 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 @keyframes gradientBG {
@@ -357,21 +370,61 @@ html, body, #root {
   }
 
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-align: center;
+    line-height: 1.2;
   }
 
   .hero-content h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     text-align: center;
   }
 
   .hero-content p {
     text-align: center;
+    font-size: 1rem;
   }
 
   .realistic-demo-btn {
     width: 100%;
     justify-content: center;
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    max-width: 85%;
+    margin: 20px auto;
+  }
+
+  .hero-main {
+    padding: 20px 16px;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .hero-image {
+    max-width: 90%;
+  }
+
+  .hero-header {
+    padding: 12px;
+  }
+
+  .hero-main {
+    padding: 16px 12px;
   }
 } 
