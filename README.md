@@ -4,7 +4,7 @@ A modern, responsive React.js landing page for clinic management software, featu
 
 ## 🌐 Live Demo
 
-**[View Live Website](https://good-health-clinic-management-k36gb5z00-dherya-jains-projects.vercel.app/)**
+**[View Live Website](https://good-health-clinic-management-r1mrecumh-dherya-jains-projects.vercel.app/)**
 
 ## ✨ Features
 
