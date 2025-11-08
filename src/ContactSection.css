@@ -62,6 +62,22 @@
   resize: none;
 }
 
+.input-group.has-error input,
+.input-group.has-error textarea {
+  box-shadow: 0 0 0 2px rgba(227,45,45,0.35), 0 2px 8px rgba(45,91,227,0.08);
+}
+
+.error-text {
+  margin-top: -10px;
+  margin-bottom: 6px;
+  color: #ffd8d8;
+  background: rgba(227,45,45,0.55);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
 .input-group input:focus,
 .input-group textarea:focus {
   background: #fff;
@@ -177,4 +193,4 @@
     font-size: 1rem;
     padding: 10px 0;
   }
-} 
+}

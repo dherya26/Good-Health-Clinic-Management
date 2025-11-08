@@ -7,8 +7,8 @@ export default function LoginModal({ open, onClose }) {
     <div className="login-modal-overlay">
       <div className="login-modal">
         <button className="login-modal-close" onClick={onClose}>&times;</button>
-        <h2 className="login-modal-title">Kivi Doc</h2>
-        <div className="login-modal-subtitle">Sign in with KiViHealth to get started</div>
+        <h2 className="login-modal-title">Good Doc</h2>
+        <div className="login-modal-subtitle">Sign in with GoodHealth to get started</div>
         <form className="login-modal-form">
           <div className="login-modal-input-group">
             <input type="email" placeholder="Email Id" />
