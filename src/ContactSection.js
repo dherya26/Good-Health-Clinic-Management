@@ -1,30 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ContactSection.css";
 
+const MESSAGE_MAX = 300;
+
 export default function ContactSection() {
-  // Add local form state and validation errors
   const [form, setForm] = useState({ name: "", mobile: "", message: "" });
   const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false);
+
+  // Auto-dismiss success toast after 4 seconds
+  useEffect(() => {
+    if (!success) return;
+    const timer = setTimeout(() => setSuccess(false), 4000);
+    return () => clearTimeout(timer);
+  }, [success]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    // Clear field-specific error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
+  // Real-time filter: allow only digits, max 10 characters
+  const handleMobileChange = (e) => {
+    const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+    setForm((prev) => ({ ...prev, mobile: digits }));
+    if (errors.mobile) {
+      setErrors((prev) => ({ ...prev, mobile: undefined }));
+    }
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    const trimmedName = form.name.trim();
+    if (!trimmedName) {
+      newErrors.name = "Please enter your name";
+    } else if (trimmedName.length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    } else if (!/^[A-Za-z\s]+$/.test(trimmedName)) {
+      newErrors.name = "Name should contain only letters and spaces";
+    }
+
+    if (!form.mobile) {
+      newErrors.mobile = "Please enter your mobile number";
+    } else if (!/^\d{10}$/.test(form.mobile)) {
+      newErrors.mobile = "Mobile number must be exactly 10 digits";
+    }
+
+    if (!form.message.trim()) {
+      newErrors.message = "Please enter a message";
+    }
+
+    return newErrors;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = {};
-    if (!form.name.trim()) newErrors.name = "Please enter your name";
-    if (!form.mobile.trim()) newErrors.mobile = "Please enter your mobile number";
-    if (!form.message.trim()) newErrors.message = "Please enter a message";
-
+    const newErrors = validate();
     setErrors(newErrors);
     if (Object.keys(newErrors).length) {
-      // Focus the first invalid field
       const firstInvalid = document.querySelector(
         ".input-group.has-error input, .input-group.has-error textarea"
       );
@@ -32,13 +68,18 @@ export default function ContactSection() {
       return;
     }
 
-    alert("Thank you for contacting us! Our team will connect with you shortly.");
-    // Optional reset after successful submit
+    setSuccess(true);
     setForm({ name: "", mobile: "", message: "" });
   };
 
   return (
     <section className="contact-section">
+      {success && (
+        <div className="contact-toast" role="status" aria-live="polite">
+          <span className="contact-toast-icon">✅</span>
+          Thank you for contacting us! Our team will connect with you shortly.
+        </div>
+      )}
       <div className="contact-content">
         <div className="contact-form-area">
           <h2 className="contact-title">Have more questions?</h2>
@@ -58,11 +99,13 @@ export default function ContactSection() {
 
             <div className={`input-group ${errors.mobile ? "has-error" : ""}`}>
               <input
-                type="text"
+                type="tel"
                 name="mobile"
-                placeholder="Enter Mobile"
+                placeholder="Enter 10-digit Mobile Number"
                 value={form.mobile}
-                onChange={handleChange}
+                onChange={handleMobileChange}
+                inputMode="numeric"
+                maxLength={10}
                 aria-invalid={!!errors.mobile}
               />
               <span className="input-icon">📱</span>
@@ -76,9 +119,11 @@ export default function ContactSection() {
                 rows={3}
                 value={form.message}
                 onChange={handleChange}
+                maxLength={MESSAGE_MAX}
                 aria-invalid={!!errors.message}
               ></textarea>
             </div>
+            <div className="char-count">{form.message.length}/{MESSAGE_MAX}</div>
             {errors.message && <div className="error-text">{errors.message}</div>}
 
             <button className="contact-btn" type="submit">Ask</button>
