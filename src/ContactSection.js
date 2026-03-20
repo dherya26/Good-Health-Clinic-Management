@@ -86,7 +86,7 @@ export default function ContactSection() {
         </div>
         <div className="contact-image">
           <img
-            src="/doctor pic.jpg"
+            src="/doctor pic.avif"
             alt="Doctor"
             onError={(e) => {
               e.target.onerror = null;
