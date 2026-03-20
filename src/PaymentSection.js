@@ -12,7 +12,7 @@ export default function PaymentSection() {
           <div className="payment-subtitle">
             Automated messages are sent to the doctor and the patient after an appointment is booked at the clinic/hospital & the payment is confirmed
           </div>
-          <button type="button" className="payment-link">● Pay with KiviPay</button>
+          <button type="button" className="payment-link">● Pay with GoodPay</button>
         </div>
         <div className="payment-image">
           <img 
